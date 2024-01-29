@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>to do list </title>
+  </head>
+  <body>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+
+    <div class="box" id="heading">
+        <h1><%=today  %></h1>
+    </div>
+
+    <div class="box">
+        <% for(var i=0;i<newListItem.length;i++){ %>
+          <form class="" action="/delete" method="post">
+            <div class="item">
+              <input onchange="this.form.submit()" name="checkbox" value="<%= (newListItem[i]._id.toString()) %>"  type="checkbox">
+              <% var a=newListItem[i].name %>
+              <p> <%= a %> </p>
+            </div>
+          <input type="hidden" name="titleOf" value=<%=today %> >
+          </form>
+        <%  } %>
+
+        <form class="butn" action="/" method="post">
+          <input type="text" name="textInput"  placeholder="New Item" autocomplete="off" >
+          <button type="submit"  name="button" value=<%=today %> >+</button>
+        </form>
+
+  </div>
+  </body>
+</html>
