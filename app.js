@@ -9,7 +9,18 @@ app.use(bodyparser.urlencoded({extended:true}));
 app.use(express.static("public")); // to use css for my kist.ejs
 
 // mongoose.connect("mongodb://127.0.0.1:27017/todoListDB"); // localhost:27017:not-works this id for local databse
-mongoose.connect("mongodb+srv://riyanpatel66mb:DSABzBpostZdaPMP@cluster1st.zz9qka7.mongodb.net/todoListDB"); // mongo atlas AWS database
+// mongoose.connect("mongodb+srv://riyanpatel66mb:DSABzBpostZdaPMP@cluster1st.zz9qka7.mongodb.net/todoListDB"); // mongo atlas AWS database
+const url ="mongodb+srv://riyanpatel66mb:DSABzBpostZdaPMP@cluster1st.zz9qka7.mongodb.net/todoListDB"
+mongoose.connect(
+    url,
+    { useNewUrlParser: true, useUnifiedTopology: true },
+    function (err, res) {
+        try {
+            console.log('Connected to Database');
+        } catch (err) {
+            throw err;
+        }
+    });
 
 // itemschema for home page , list schema for custom dyanamic list pages
 const itemSchema = {
